@@ -1,0 +1,8 @@
+services:
+  mercurjs:
+    build:
+      context: .
+    image: mercurjs
+    container_name: mercurjs-dev
+    network_mode: host
+    # command: ["sleep", "infinity"]

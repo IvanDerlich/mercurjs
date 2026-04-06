@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.7
+
 FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y curl ca-certificates unzip && \
@@ -14,6 +16,6 @@ ENV PATH="/root/.bun/bin:${PATH}"
 
 # WORKDIR /my-marketplace
 
-EXPOSE 9000 7000 7001
+# EXPOSE 9000 7000 7001
 
 CMD ["sleep", "infinity"]
