@@ -43,8 +43,6 @@ RUN npm i -g @mercurjs/cli@2.0.0
     # --skip-db
 # 	--db-connection-string "postgresql://appuser:change_me_strong@localhost:5432/appdb"
 
-# WORKDIR /my-marketplace
-
 # RUN npm i @medusajs/medusa-cli@1.3.23
 
 # RUN cd my-marketplace
