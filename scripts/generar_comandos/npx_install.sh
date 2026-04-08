@@ -19,4 +19,4 @@ source "$(dirname "$0")/../shared/validate-and-load.sh" "$1"
 
 DB_URL="postgresql://postgres:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB"
 
-echo "bunx @mercurjs/cli@$MERCURJS_VERSION create $PROJECT_NAME --template basic --skip-email --db-connection-string \"$DB_URL\""
+echo "npx @mercurjs/cli@$MERCURJS_VERSION create $PROJECT_NAME --template basic --skip-email --db-connection-string \"$DB_URL\""

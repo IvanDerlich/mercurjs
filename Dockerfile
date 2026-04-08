@@ -19,7 +19,7 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg -
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" > /etc/apt/sources.list.d/nodesource.list
 RUN apt-get update
 RUN apt-get install -y nodejs
-RUN corepack enable
+# RUN corepack enable
 RUN node --version
 RUN npm --version
 
@@ -34,20 +34,17 @@ RUN echo "Bun version: $(bun --version)"
 RUN apt-get install -y postgresql-client
 
 # Install Mercur CLI globally using npm.
-# ARG MERCURJS_VERSION
-# ENV MERCURJS_VERSION=${MERCURJS_VERSION}
-# RUN echo "MERCURJS_VERSION is: $MERCURJS_VERSION"
+ARG MERCURJS_VERSION
+ENV MERCURJS_VERSION=${MERCURJS_VERSION}
+RUN echo "MERCURJS_VERSION is: $MERCURJS_VERSION"
 # Keep this version in sync with the package.json of the version you are going to use
 # Mercur requires node to be installed globally, otherwise this command fails
 # https://github.com/mercurjs/mercur/blob/v${MERCURJS_VERSION}/package.json dependencies
 # Otherwise it might cause important issues
-# RUN npm i -g @mercurjs/framework@${MERCURJS_VERSION}
-# RUN git clone https://github.com/mercurjs/mercur.git
-# RUN cd mercur
-# RUN git checkout v${MERCURJS_VERSION}
-# RUN npm install
-
-
+# RUN npm i -g @mercurjs/cli@${MERCURJS_VERSION}
+RUN git clone https://github.com/mercurjs/mercur.git
+RUN cd mercur
+RUN bun install
 
 # RUN npm run dev
 
